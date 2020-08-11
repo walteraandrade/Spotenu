@@ -1,0 +1,39 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 8rem;
+  position: absolute;
+  background-color: #13c9f2;
+  width: 100%;
+  top: 0;
+}
+
+.header p {
+  font: 700 3.3rem "Permanent Marker";
+  color: #f2f2f0;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #f2f2f0;
+          text-decoration-color: #f2f2f0;
+  letter-spacing: 0.2rem;
+  margin-top: 1.1rem;
+  margin-left: 2rem;
+}
+
+img {
+  height: 80%;
+  cursor: pointer;
+  margin-right: 2rem;
+  margin-top: 0.8rem;
+}
+
+@media (min-width: 700px) {
+  .header {
+    width: 100vw;
+    left: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,35 @@
+input {
+  border-radius: 2rem;
+  border-color: #13c9f2;
+  color: #f28829;
+  font: 700 1.6rem Cantarell;
+  padding: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  background-color: #13c9f2;
+  color: #f2f2f0;
+  height: 5rem;
+  border-color: transparent;
+  font: 700 1.6rem Cantarell;
+  margin: 2rem;
+  -webkit-transition: background-color 500ms;
+  transition: background-color 500ms;
+}
+
+button:hover,
+button :active {
+  background-color: #366873;
+}
+
+.container {
+  width: 100vw;
+  margin-top: 0;
+}
+/*# sourceMappingURL=styles.css.map */

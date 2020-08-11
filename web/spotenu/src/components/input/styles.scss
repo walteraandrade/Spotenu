@@ -1,0 +1,33 @@
+@import "../../global/css/input";
+@import "../../global/css/centeredFlex";
+@import "../../global/css/fonts";
+
+input {
+  width: 80%;
+  color: $black;
+  margin: 3rem;
+}
+
+.input-block {
+  @include centeredFlex;
+  justify-content: space-between;
+  font: 700 2rem $font1;
+  letter-spacing: 0.2rem;
+}
+
+@media (min-width: 800px) {
+  input {
+    margin: 2rem;
+    width: 70%;
+    color: $black;
+    margin: 2rem auto;
+  }
+
+  .input-block {
+    @include centeredFlex;
+    justify-content: space-between;
+    font: 700 2rem $font1;
+    letter-spacing: 0.2rem;
+    width: 50vw;
+  }
+}

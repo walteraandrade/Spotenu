@@ -1,0 +1,42 @@
+@import "./css/colorPalette";
+@import "./css/centeredFlex";
+
+:root {
+  font-size: 60%;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+#root {
+  @include centeredFlex;
+}
+
+body {
+  background: #0d0d0d;
+  color: $primary;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Cantarell;
+}
+
+body {
+  background: $black;
+}
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
+.container {
+  width: 90vw;
+  max-width: 700px;
+}

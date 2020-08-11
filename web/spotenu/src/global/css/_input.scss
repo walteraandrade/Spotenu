@@ -1,0 +1,12 @@
+@import "./colorPalette";
+
+input {
+  border-radius: 2rem;
+  border-color: $primary;
+  color: $secondary;
+  font: 700 1.6rem Cantarell;
+  padding: 1rem;
+  &:focus {
+    outline: none;
+  }
+}

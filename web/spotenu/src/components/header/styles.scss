@@ -1,0 +1,35 @@
+@import "../../global/css/colorPalette";
+@import "../../global/css/fonts";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 8rem;
+  position: absolute;
+  background-color: $primary;
+  width: 100%;
+  top: 0;
+  p {
+    font: 700 3.3rem $font2;
+    color: $white;
+    text-decoration: underline;
+    text-decoration-color: $white;
+    letter-spacing: 0.2rem;
+    margin-top: 1.1rem;
+    margin-left: 2rem;
+  }
+}
+
+img {
+  height: 80%;
+  cursor: pointer;
+  margin-right: 2rem;
+  margin-top: 0.8rem;
+}
+
+@media (min-width: 700px) {
+  .header {
+    width: 100vw;
+    left: 0;
+  }
+}
