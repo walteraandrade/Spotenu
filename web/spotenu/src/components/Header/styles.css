@@ -1,0 +1,42 @@
+.header {
+  background-color: #13c9f2;
+  position: absolute;
+  top: 0;
+  height: 10vh;
+  width: 100vw;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header p {
+  font-size: 4rem;
+  margin-top: 2rem;
+  font-family: "Permanent Marker";
+  margin-left: 2rem;
+}
+
+.header p a {
+  color: #f2f2f0;
+  text-decoration: none;
+}
+
+.header p a:active {
+  color: #1a90ab;
+}
+
+.header p span {
+  color: #0d0d0d;
+}
+
+.header img {
+  height: 40%;
+  margin-top: 3rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+/*# sourceMappingURL=styles.css.map */

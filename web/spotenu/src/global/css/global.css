@@ -1,0 +1,80 @@
+:root {
+  font-size: 60%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: #0d0d0d;
+  color: #f2f2f0;
+}
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem "Play";
+  color: #f2f2f0;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
+
+button {
+  background-color: #13c9f2;
+  color: #f2f2f0;
+  height: 5rem;
+  width: 12rem;
+  border-radius: 3rem;
+  border: none;
+  font: 700 2rem "Play";
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 500ms;
+  transition: background-color 500ms;
+}
+
+button:hover {
+  background-color: #1a90ab;
+}
+
+input {
+  height: 5rem;
+  border-radius: 3rem;
+  font: 700 2rem "Play";
+  color: #0d0d0d;
+  letter-spacing: 0.1rem;
+  padding: 2rem;
+}
+
+input:focus {
+  outline: none;
+  border: 0.2rem solid #13c9f2;
+}
+/*# sourceMappingURL=global.css.map */

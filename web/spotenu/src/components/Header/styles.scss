@@ -1,0 +1,35 @@
+@import "../../global/css/colorPalette";
+@import "../../global/css/fonts";
+
+.header {
+  background-color: $primary;
+  position: absolute;
+  top: 0;
+  height: 10vh;
+  width: 100vw;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  p {
+    font-size: 4rem;
+    margin-top: 2rem;
+    font-family: $styled;
+    margin-left: 2rem;
+    a {
+      color: $white;
+      text-decoration: none;
+      &:active {
+        color: $primaryDark;
+      }
+    }
+    span {
+      color: $black;
+    }
+  }
+  img {
+    height: 40%;
+    margin-top: 3rem;
+    margin-right: 2rem;
+    cursor: pointer;
+  }
+}
