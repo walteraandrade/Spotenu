@@ -14,11 +14,16 @@ form {
           justify-content: center;
 }
 
+form button {
+  margin-top: 5vh;
+}
+
 h2 {
   margin: 5rem auto;
 }
 
 .user {
   text-align: center;
+  margin-top: 10vh;
 }
 /*# sourceMappingURL=styles.css.map */
