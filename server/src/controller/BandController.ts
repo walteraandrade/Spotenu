@@ -1,0 +1,35 @@
+import { BaseDatabase } from "../data/BaseDatabase";
+import { UserDatabase } from "../data/UserDatabase";
+import { UserBusiness } from "../business/UserBusiness";
+import { HashGenerator } from "../middleware/HashManager";
+import { TokenGenerator } from "../middleware/TokenGenerator";
+import { IdGenerator } from "../middleware/IdGenerator";
+import { Request, Response } from "express";
+
+export class UserController {
+  private static UserBusiness = new UserBusiness(
+    new UserDatabase(),
+    new HashGenerator(),
+    new TokenGenerator(),
+    new IdGenerator()
+  );
+
+  async signUp(req: Request, res: Response) {
+    try {
+      const result = await UserController.UserBusiness.signup(
+        req.body.name,
+        req.body.email,
+        req.body.password,
+        req.body.role,
+        req.body.description
+      );
+
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(error.errorCode || 400).send({
+        message: error.message,
+      });
+    }
+    BaseDatabase.destroyConnection();
+  }
+}
