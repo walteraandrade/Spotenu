@@ -20,7 +20,8 @@ export class UserBusiness {
     role: string,
     nickname: string
   ) {
-    if (!name || email || password || role || nickname) {
+    console.log(name, email, password, role, nickname);
+    if (!name || !email || !password || !role || !nickname) {
       throw new InvalidInputError("There is an input missing");
     }
 
