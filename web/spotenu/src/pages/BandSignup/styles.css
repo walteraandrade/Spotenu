@@ -18,6 +18,23 @@ form button {
   margin-top: 5vh;
 }
 
+form p {
+  font-size: 2.4rem;
+}
+
+form textarea {
+  padding: 0.5rem;
+  width: 100%;
+  height: 18rem;
+  border-radius: 2rem;
+  color: #0d0d0d;
+}
+
+form textarea:focus {
+  outline: none;
+  border: 2px #13c9f2 solid;
+}
+
 h2 {
   margin: 5rem auto;
 }
