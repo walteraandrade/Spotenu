@@ -27,7 +27,14 @@ export class UserDatabase extends BaseDatabase {
               "${user.getEmail()}",
               "${user.getPassword()}",
               "${user.getRole()}",
-              "${user.getNickname()}
+              "${user.getNickname()}"
           )`);
+  }
+
+  public async fetchEmail(nickname: string): Promise<User | undefined> {
+    const result = await this.getConnection().raw(`
+    SELECT * FROM ${UserDatabase.TABLE_NAME} WHERE nickname = "${nickname}"`);
+
+    return this.toModel(result[0][0]);
   }
 }

@@ -12,8 +12,8 @@ export class BandDatabase extends BaseDatabase {
         dbModel.name,
         dbModel.email,
         dbModel.password,
-        dbModel.role,
-        dbModel.nickname
+        dbModel.description,
+        dbModel.is_approved
       )
     );
   }
@@ -25,9 +25,9 @@ export class BandDatabase extends BaseDatabase {
               "${band.getId()}",
               "${band.getName()}",
               "${band.getEmail()}",
-              "${band.getPassword()}",
-              "${band.getRole()}",
-              "${band.getDescription()}
+              "${band.getDescription()}",
+              "${band.getIsApproved()}",
+              "${band.getPassword()}"
           )`);
   }
 }

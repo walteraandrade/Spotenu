@@ -1,13 +1,11 @@
-import { SYSTEM_ROLE } from "./User";
-
 export class Band {
   constructor(
     private id: string,
     private name: string,
     private email: string,
     private password: string,
-    private role: SYSTEM_ROLE,
-    private description: string
+    private description: string,
+    private is_approved: number
   ) {}
 
   public getId(): string {
@@ -26,8 +24,8 @@ export class Band {
     return this.password;
   }
 
-  public getRole(): string {
-    return this.role;
+  public getIsApproved(): number {
+    return this.is_approved;
   }
 
   public getDescription(): string {

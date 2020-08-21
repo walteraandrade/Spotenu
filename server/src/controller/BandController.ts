@@ -1,14 +1,14 @@
 import { BaseDatabase } from "../data/BaseDatabase";
-import { UserDatabase } from "../data/UserDatabase";
-import { UserBusiness } from "../business/UserBusiness";
 import { HashGenerator } from "../middleware/HashManager";
 import { TokenGenerator } from "../middleware/TokenGenerator";
 import { IdGenerator } from "../middleware/IdGenerator";
 import { Request, Response } from "express";
+import { BandBusiness } from "../business/BandBusiness";
+import { BandDatabase } from "../data/BandDatabase";
 
-export class UserController {
-  private static UserBusiness = new UserBusiness(
-    new UserDatabase(),
+export class BandController {
+  private static BandBusiness = new BandBusiness(
+    new BandDatabase(),
     new HashGenerator(),
     new TokenGenerator(),
     new IdGenerator()
@@ -16,15 +16,16 @@ export class UserController {
 
   async signUp(req: Request, res: Response) {
     try {
-      const result = await UserController.UserBusiness.signup(
+      const result = await BandController.BandBusiness.signup(
         req.body.name,
         req.body.email,
         req.body.password,
-        req.body.role,
         req.body.description
       );
 
-      res.status(200).send(result);
+      res.status(200).send({
+        message: `${result.accessToken}`,
+      });
     } catch (error) {
       res.status(error.errorCode || 400).send({
         message: error.message,

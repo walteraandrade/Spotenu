@@ -33,21 +33,21 @@ export class UserController {
     BaseDatabase.destroyConnection();
   }
 
-  //   async login(req: Request, res: Response) {
-  //     try {
-  //       const token = await UserController.UserBusiness.login(
-  //         req.body.email,
-  //         req.body.password
-  //       );
+  async login(req: Request, res: Response) {
+    try {
+      const token = await UserController.UserBusiness.login(
+        req.body.nickname,
+        req.body.password
+      );
 
-  //       res.status(200).send({
-  //         token: token,
-  //       });
-  //     } catch (error) {
-  //       res.status(error.errorCode || 400).send({
-  //         message: error.message,
-  //       });
-  //     }
-  //     BaseDatabase.destroyConnection();
-  //   }
+      res.status(200).send({
+        token: token,
+      });
+    } catch (error) {
+      res.status(error.errorCode || 400).send({
+        message: error.message,
+      });
+    }
+    BaseDatabase.destroyConnection();
+  }
 }

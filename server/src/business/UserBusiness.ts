@@ -4,6 +4,7 @@ import { TokenGenerator } from "../middleware/TokenGenerator";
 import { IdGenerator } from "../middleware/IdGenerator";
 import { InvalidInputError } from "../Error/InvalidInputError";
 import { stringToUserRole, User } from "../models/User";
+import { NotFound } from "../Error/NotFound";
 
 export class UserBusiness {
   constructor(
@@ -20,7 +21,6 @@ export class UserBusiness {
     role: string,
     nickname: string
   ) {
-    console.log(name, email, password, role, nickname);
     if (!name || !email || !password || !role || !nickname) {
       throw new InvalidInputError("There is an input missing");
     }
@@ -52,5 +52,32 @@ export class UserBusiness {
       role,
     });
     return { accessToken };
+  }
+
+  public async login(nickname: string, password: string): Promise<string> {
+    if (!nickname || !password) {
+      throw new InvalidInputError("You need both parameters to log in!");
+    }
+    const user = await this.userDatabase.fetchEmail(nickname);
+
+    if (!user) {
+      throw new NotFound("User not found");
+    }
+
+    const validatePassword = await this.hashGenerator.compareHash(
+      password,
+      user.getPassword()
+    );
+
+    if (!validatePassword) {
+      throw new InvalidInputError("Invalid password");
+    }
+
+    const token = this.tokenGenerator.generate({
+      id: user.getId(),
+      role: user.getRole(),
+    });
+
+    return token;
   }
 }
