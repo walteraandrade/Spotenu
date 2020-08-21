@@ -13,7 +13,8 @@ export class BandDatabase extends BaseDatabase {
         dbModel.email,
         dbModel.password,
         dbModel.description,
-        dbModel.is_approved
+        dbModel.is_approved,
+        dbModel.nickname
       )
     );
   }
@@ -27,7 +28,15 @@ export class BandDatabase extends BaseDatabase {
               "${band.getEmail()}",
               "${band.getDescription()}",
               "${band.getIsApproved()}",
-              "${band.getPassword()}"
+              "${band.getPassword()}",
+              "${band.getNickname()}"
           )`);
+  }
+
+  public async fetchBands(): Promise<any> {
+    const result = await this.getConnection().raw(`
+    SELECT name, nickname, email, is_approved FROM Spotenu_Bands;`);
+
+    return result[0];
   }
 }

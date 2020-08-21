@@ -5,7 +5,8 @@ export class Band {
     private email: string,
     private password: string,
     private description: string,
-    private is_approved: number
+    private is_approved: number,
+    private nickname: string
   ) {}
 
   public getId(): string {
@@ -30,5 +31,9 @@ export class Band {
 
   public getDescription(): string {
     return this.description;
+  }
+
+  public getNickname(): string {
+    return this.nickname;
   }
 }
