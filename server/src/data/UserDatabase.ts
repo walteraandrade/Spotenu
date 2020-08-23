@@ -10,10 +10,12 @@ export class UserDatabase extends BaseDatabase {
       new User(
         dbModel.id,
         dbModel.name,
+        dbModel.nickname,
         dbModel.email,
         dbModel.password,
-        dbModel.role,
-        dbModel.nickname
+        dbModel.description,
+        dbModel.is_approved,
+        dbModel.type
       )
     );
   }
@@ -24,10 +26,12 @@ export class UserDatabase extends BaseDatabase {
           VALUES (
               "${user.getId()}",
               "${user.getName()}",
+              "${user.getNickname()}",
               "${user.getEmail()}",
               "${user.getPassword()}",
-              "${user.getRole()}",
-              "${user.getNickname()}"
+              "${user.getDescription()}",
+              "${user.getType()}",
+              "${user.getIsApproved()}"
           )`);
   }
 

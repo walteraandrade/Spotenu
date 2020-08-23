@@ -6,8 +6,10 @@ export class User {
     private name: string,
     private email: string,
     private password: string,
-    private role: SYSTEM_ROLE,
-    private nickname: string
+    private type: USER_TYPE,
+    private nickname: string,
+    private is_approved: boolean,
+    private description?: string
   ) {}
 
   public getId(): string {
@@ -26,27 +28,41 @@ export class User {
     return this.password;
   }
 
-  public getRole(): string {
-    return this.role;
-  }
-
   public getNickname(): string {
     return this.nickname;
   }
+
+  public getType(): string {
+    return this.type;
+  }
+
+  public getDescription(): string | undefined {
+    return this.description;
+  }
+
+  public getIsApproved(): boolean {
+    return this.is_approved;
+  }
 }
 
-export const stringToUserRole = (input: string): SYSTEM_ROLE => {
+export const stringToUserType = (input: string): USER_TYPE => {
   switch (input) {
     case "NORMAL":
-      return SYSTEM_ROLE.NORMAL;
+      return USER_TYPE.REGULAR;
     case "ADMIN":
-      return SYSTEM_ROLE.ADMIN;
+      return USER_TYPE.ADMIN;
+    case "BAND":
+      return USER_TYPE.BAND;
+    case "PREMIUM":
+      return USER_TYPE.PREMIUM;
     default:
       throw new InvalidInputError("Please insert a valid role");
   }
 };
 
-export enum SYSTEM_ROLE {
+export enum USER_TYPE {
   ADMIN = "ADMIN",
-  NORMAL = "NORMAL",
+  REGULAR = "REGULAR",
+  PREMIUM = "PREMIUM",
+  BAND = "BAND",
 }

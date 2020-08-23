@@ -3,7 +3,7 @@ import { HashGenerator } from "../middleware/HashManager";
 import { TokenGenerator } from "../middleware/TokenGenerator";
 import { IdGenerator } from "../middleware/IdGenerator";
 import { InvalidInputError } from "../Error/InvalidInputError";
-import { stringToUserRole, User } from "../models/User";
+import { stringToUserType, User } from "../models/User";
 import { NotFound } from "../Error/NotFound";
 
 export class UserBusiness {
@@ -18,10 +18,11 @@ export class UserBusiness {
     name: string,
     email: string,
     password: string,
-    role: string,
-    nickname: string
+    type: string,
+    nickname: string,
+    description?: string
   ) {
-    if (!name || !email || !password || !role || !nickname) {
+    if (!name || !email || !password || !type || !nickname) {
       throw new InvalidInputError("There is an input missing");
     }
 
@@ -42,14 +43,16 @@ export class UserBusiness {
         name,
         email,
         cryptedPassword,
-        stringToUserRole(role),
-        nickname
+        stringToUserType(type),
+        nickname,
+        false,
+        description
       )
     );
 
     const accessToken = this.tokenGenerator.generate({
       id,
-      role,
+      type,
     });
     return { accessToken };
   }
@@ -75,7 +78,7 @@ export class UserBusiness {
 
     const token = this.tokenGenerator.generate({
       id: user.getId(),
-      role: user.getRole(),
+      type: user.getType(),
     });
 
     return token;
