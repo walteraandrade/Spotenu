@@ -7,7 +7,6 @@ export const useForm = (InitialValues: Form) => {
   const [form, setForm] = useState(InitialValues);
 
   const onChange = (name: string, value: string) => {
-      
     const newForm = { ...form, [name]: value };
     setForm(newForm);
   };
@@ -20,10 +19,10 @@ export const useForm = (InitialValues: Form) => {
 };
 
 export interface Form {
-    name: string,
-    email: string, 
-    password: string,
-    role?: string,
-    description?: string,
-    nickname?: string
+  name?: string;
+  email?: string;
+  password: string;
+  role?: string;
+  description?: string;
+  nickname?: string;
 }

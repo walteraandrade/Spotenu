@@ -1,0 +1,27 @@
+.loginContainer {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.loginGrid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 30rem;
+}
+
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10rem;
+    margin-top: 5rem;
+    img {
+        width: 30rem;
+    }
+}
