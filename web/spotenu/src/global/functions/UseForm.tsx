@@ -1,8 +1,5 @@
 import { useState } from "react";
 
-export const baseUrl =
-  "https://us-central1-missao-newton.cloudfunctions.net/futureEatsB";
-
 export const useForm = (InitialValues: Form) => {
   const [form, setForm] = useState(InitialValues);
 

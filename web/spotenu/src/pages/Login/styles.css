@@ -14,6 +14,7 @@
   -ms-grid-columns: 2.5fr 1fr;
       grid-template-columns: 2.5fr 1fr;
   gap: 30rem;
+  width: 80vw;
 }
 
 .formContainer {
@@ -35,11 +36,48 @@
       grid-template-rows: 1fr 1fr 1fr;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  gap: 10rem;
+  gap: 10%;
   margin-top: 5rem;
 }
 
 .imgContainer img {
-  width: 30rem;
+  width: 150%;
+}
+
+.mobileImgContainer {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .loginContainer {
+    width: 80%;
+  }
+  .loginGrid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+    width: 80%;
+  }
+  .imgContainer {
+    display: none;
+  }
+  .mobileImgContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mobileImgContainer img {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

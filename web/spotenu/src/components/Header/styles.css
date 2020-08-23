@@ -5,6 +5,7 @@
   height: 10vh;
   width: 100vw;
   left: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -7,6 +7,7 @@
     display: grid;
     grid-template-columns: 2.5fr 1fr;
     gap: 30rem;
+    width: 80vw;
 }
 
 .formContainer {
@@ -19,9 +20,35 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10rem;
+    gap: 10%;
     margin-top: 5rem;
     img {
-        width: 30rem;
+        width: 150%;
+    }
+}
+
+.mobileImgContainer {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .loginContainer {
+        width: 80%;
+    }
+    .loginGrid {
+        display: flex;
+        flex-flow: column wrap;
+        width: 80%;
+    }
+    .imgContainer {
+        display: none;
+    }
+    .mobileImgContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+        }
     }
 }

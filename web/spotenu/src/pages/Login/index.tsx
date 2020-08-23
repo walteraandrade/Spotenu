@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../components/Input";
 import "./styles.css";
 import Header from "../../components/Header";
+import { baseUrl } from "../../global/functions/ApiHandler";
+import axios from "axios";
 import { useForm } from "../../global/functions/UseForm";
-import { login } from "../../global/functions/ApiHandler";
+import { useHistory } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const history = useHistory();
   const { form, onChange, resetForm } = useForm({
     nickname: "",
     password: "",
   });
+
+  const [response, setResponse] = useState("");
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange(event.target.name, event.target.value);
@@ -18,8 +23,18 @@ const Login: React.FC = () => {
   const onClickSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    await login(form);
+    const body = form;
+    await axios
+      .post(`${baseUrl}/users/login`, body)
+      .then((res) => {
+        setResponse(res.data.token);
+      })
+      .catch((err) => {
+        console.log(err.data);
+      });
 
+    window.localStorage.setItem("token", response);
+    history.push("/home");
     resetForm();
   };
 
@@ -63,6 +78,12 @@ const Login: React.FC = () => {
           <img
             src="https://images.unsplash.com/photo-1548123378-bde4eca81d2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
             alt="Dancer"
+          />
+        </div>
+        <div className="mobileImgContainer">
+          <img
+            src="https://images.unsplash.com/photo-1502056618377-f15b18d813b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+            alt="Singers"
           />
         </div>
         <div className="formContainer">
