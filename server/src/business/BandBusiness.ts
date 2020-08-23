@@ -5,6 +5,7 @@ import { InvalidInputError } from "../Error/InvalidInputError";
 import { Band } from "../models/Band";
 import { BandDatabase } from "../data/BandDatabase";
 import { Unauthorized } from "../Error/Unauthorized";
+import { NotFound } from "../Error/NotFound";
 
 export class BandBusiness {
   constructor(
@@ -56,5 +57,37 @@ export class BandBusiness {
     const bands = await this.bandDatabase.fetchBands();
 
     return bands;
+  }
+
+  public async login(nickname: string, password: string) {
+    if (!nickname || !password) {
+      throw new InvalidInputError("You need both parameters to log in!");
+    }
+    const user = await this.bandDatabase.login(nickname);
+
+    if (!user) {
+      throw new NotFound("User not found");
+    }
+
+    const validatePassword = await this.hashGenerator.compareHash(
+      password,
+      user.getPassword()
+    );
+
+    if (!validatePassword) {
+      throw new InvalidInputError("Invalid password");
+    }
+
+    if (user.getIsApproved === 0) {
+      throw new Unauthorized(
+        "Your band still needs to be approved by an admin before you can log in"
+      );
+    }
+    const token = this.tokenGenerator.generate({
+      id: user.getId(),
+      role: user.getRole(),
+    });
+
+    return token;
   }
 }

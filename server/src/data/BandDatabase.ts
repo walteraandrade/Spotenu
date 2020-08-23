@@ -39,4 +39,11 @@ export class BandDatabase extends BaseDatabase {
 
     return result[0];
   }
+
+  public async login(nickname: string): Promise<any> {
+    const result = await this.getConnection().raw(`
+    SELECT * FROM Spotenu_Bands WHERE nickname = "${nickname}";`);
+
+    return result[0];
+  }
 }

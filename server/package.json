@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.7",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.7",
     "@types/jsonwebtoken": "^8.5.0",
@@ -24,8 +25,18 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.4",
     "mysql": "^2.18.1",
+    "serverless-dotenv-plugin": "^3.0.0",
+    "serverless-offline": "^6.5.0",
+    "serverless-webpack": "^5.3.3",
+    "ts-loader": "^8.0.2",
     "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7",
-    "uuid": "^8.3.0"
+    "uuid": "^8.3.0",
+    "webpack": "^4.44.1",
+    "webpack-node-externals": "^2.5.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "serverless-http": "^2.5.0"
   }
 }

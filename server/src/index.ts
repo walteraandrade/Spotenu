@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import { userRouter } from "./routes/UserRouter";
 import { bandRouter } from "./routes/BandRouter";
-
+import cors from "cors";
 dotenv.config();
 
-const app = express();
+export const app = express();
+
+app.use(cors({ origin: true }));
 
 app.use(express.json());
 
