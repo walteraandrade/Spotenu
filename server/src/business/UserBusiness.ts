@@ -45,7 +45,7 @@ export class UserBusiness {
         cryptedPassword,
         stringToUserType(type),
         nickname,
-        false,
+        0,
         description
       )
     );

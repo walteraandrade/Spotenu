@@ -20,8 +20,9 @@ export class UserController {
         req.body.name,
         req.body.email,
         req.body.password,
-        req.body.role,
-        req.body.nickname
+        req.body.type,
+        req.body.nickname,
+        req.body.description
       );
 
       res.status(200).send(result);

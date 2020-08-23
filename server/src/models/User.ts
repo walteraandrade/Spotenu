@@ -8,7 +8,7 @@ export class User {
     private password: string,
     private type: USER_TYPE,
     private nickname: string,
-    private is_approved: boolean,
+    private is_approved: number,
     private description?: string
   ) {}
 
@@ -40,14 +40,14 @@ export class User {
     return this.description;
   }
 
-  public getIsApproved(): boolean {
+  public getIsApproved(): number {
     return this.is_approved;
   }
 }
 
 export const stringToUserType = (input: string): USER_TYPE => {
   switch (input) {
-    case "NORMAL":
+    case "REGULAR":
       return USER_TYPE.REGULAR;
     case "ADMIN":
       return USER_TYPE.ADMIN;

@@ -14,27 +14,6 @@ export class BandController {
     new IdGenerator()
   );
 
-  async signUp(req: Request, res: Response) {
-    try {
-      const result = await BandController.BandBusiness.signup(
-        req.body.name,
-        req.body.email,
-        req.body.password,
-        req.body.description,
-        req.body.nickname
-      );
-
-      res.status(200).send({
-        message: `${result.accessToken}`,
-      });
-    } catch (error) {
-      res.status(error.errorCode || 400).send({
-        message: error.message,
-      });
-    }
-    BaseDatabase.destroyConnection();
-  }
-
   async fetchBands(req: Request, res: Response) {
     try {
       const token = (await req.headers.token) as string;
