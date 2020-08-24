@@ -22,7 +22,7 @@ export class TokenGenerator {
   public verify(token: string) {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
     const result = { id: payload.id, type: payload.type };
-    return result;
+    return result.type;
   }
 }
 

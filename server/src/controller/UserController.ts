@@ -54,10 +54,10 @@ export class UserController {
 
   async verification(req: Request, res: Response) {
     try {
-      const result = req.body.token;
+      const type = await UserController.UserBusiness.verify(req.body.token);
 
       res.status(200).send({
-        message: `type: ${result}`,
+        type,
       });
     } catch (err) {
       res.status(400).send({

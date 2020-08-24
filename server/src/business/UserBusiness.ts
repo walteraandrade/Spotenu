@@ -99,9 +99,9 @@ export class UserBusiness {
     return token;
   }
 
-  public async verify(token: string): Promise<string> {
+  public async verify(token: string): Promise<any> {
     const result = await this.tokenGenerator.verify(token);
 
-    return result.type as string;
+    return result;
   }
 }
