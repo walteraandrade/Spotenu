@@ -16,7 +16,7 @@ export class BandBusiness {
 
   public async fetchBands(token: string) {
     const auth = await this.tokenGenerator.verify(token);
-    if (auth.role !== "ADMIN") {
+    if (auth.type !== "ADMIN") {
       throw new Unauthorized("You do not have access to this function.");
     }
 

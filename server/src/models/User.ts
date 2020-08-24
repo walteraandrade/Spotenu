@@ -4,12 +4,12 @@ export class User {
   constructor(
     private id: string,
     private name: string,
+    private nickname: string,
     private email: string,
     private password: string,
     private type: USER_TYPE,
-    private nickname: string,
     private is_approved: number,
-    private description?: string
+    private description: string
   ) {}
 
   public getId(): string {

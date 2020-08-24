@@ -51,4 +51,18 @@ export class UserController {
     }
     BaseDatabase.destroyConnection();
   }
+
+  async verification(req: Request, res: Response) {
+    try {
+      const result = req.body.token;
+
+      res.status(200).send({
+        message: `type: ${result}`,
+      });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  }
 }

@@ -13,9 +13,9 @@ export class UserDatabase extends BaseDatabase {
         dbModel.nickname,
         dbModel.email,
         dbModel.password,
-        dbModel.description,
+        dbModel.type,
         dbModel.is_approved,
-        dbModel.type
+        dbModel.description
       )
     );
   }
@@ -29,15 +29,17 @@ export class UserDatabase extends BaseDatabase {
               "${user.getNickname()}",
               "${user.getEmail()}",
               "${user.getPassword()}",
-              "${user.getDescription()}",
               "${user.getType()}",
-              "${user.getIsApproved()}"
+              "${user.getIsApproved()}",
+              "${user.getDescription()}"
           )`);
   }
 
   public async fetchEmail(nickname: string): Promise<User | undefined> {
     const result = await this.getConnection().raw(`
     SELECT * FROM ${UserDatabase.TABLE_NAME} WHERE nickname = "${nickname}"`);
+
+    console.log(result[0]);
 
     return this.toModel(result[0][0]);
   }

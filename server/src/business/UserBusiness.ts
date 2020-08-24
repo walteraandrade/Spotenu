@@ -37,18 +37,33 @@ export class UserBusiness {
     const id = this.idGenerator.generate();
     const cryptedPassword = await this.hashGenerator.hash(password);
 
-    await this.userDatabase.signUp(
-      new User(
-        id,
-        name,
-        email,
-        cryptedPassword,
-        stringToUserType(type),
-        nickname,
-        0,
-        description
-      )
-    );
+    if (!description) {
+      await this.userDatabase.signUp(
+        new User(
+          id,
+          name,
+          nickname,
+          email,
+          cryptedPassword,
+          stringToUserType(type),
+          0,
+          ""
+        )
+      );
+    } else {
+      await this.userDatabase.signUp(
+        new User(
+          id,
+          name,
+          nickname,
+          email,
+          cryptedPassword,
+          stringToUserType(type),
+          0,
+          description
+        )
+      );
+    }
 
     const accessToken = this.tokenGenerator.generate({
       id,
@@ -82,5 +97,11 @@ export class UserBusiness {
     });
 
     return token;
+  }
+
+  public async verify(token: string): Promise<string> {
+    const result = await this.tokenGenerator.verify(token);
+
+    return result.type as string;
   }
 }
