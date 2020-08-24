@@ -1,0 +1,36 @@
+@import "../../global/css/colorPalette";
+.bodyContainer {
+    display: flex;
+    color: white;
+    button {
+        width: 10rem;
+        font-size: 2rem;
+        margin: 1rem 2rem;
+        background: none;
+        &:hover {
+            color: $secondary;
+            text-shadow: 1px 2px 2px #2f2f2f;
+        }
+        &:active {
+            border: none;
+            outline: none;
+            color: $secondaryDark;
+        }
+    }
+    img {
+        height: 82vh;
+        padding: 5rem 0 5rem 0;
+        border-right: 3px solid $primary;
+    }
+}
+
+.listContainer {
+    background-color: #6e6e6e;
+    padding: 5rem 2rem;
+    margin: 15rem 8rem 0;
+    li {
+        list-style-type: none;
+        border: white 1px solid;
+        margin: 2rem 0;
+    }
+}

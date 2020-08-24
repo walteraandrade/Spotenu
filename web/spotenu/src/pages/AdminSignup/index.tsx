@@ -2,16 +2,13 @@ import React, { useEffect } from "react";
 import Header from "../../components/Header";
 import Input from "../../components/Input";
 import "./styles.css";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useForm } from "../../global/functions/UseForm";
-import { authorization } from "../../global/functions/Authorization";
+import axios from "axios";
+import { baseUrl } from "../../global/functions/ApiHandler";
 
 const AdminSignup: React.FC = () => {
   const history = useHistory();
-
-  useEffect(() => {
-    authorization();
-  }, []);
 
   const { form, onChange, resetForm } = useForm({
     name: "",
@@ -27,7 +24,10 @@ const AdminSignup: React.FC = () => {
   const onClickSumbit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     const body = { ...form, type: "ADMIN" };
+
+    axios.post(`${baseUrl}users/signup`, body);
   };
+
   return (
     <div className="admin">
       <Header />

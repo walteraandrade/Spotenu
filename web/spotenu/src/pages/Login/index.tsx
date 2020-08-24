@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Input from "../../components/Input";
 import "./styles.css";
 import Header from "../../components/Header";
@@ -14,8 +14,6 @@ const Login: React.FC = () => {
     password: "",
   });
 
-  const [response, setResponse] = useState("");
-
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
     onChange(event.target.name, event.target.value);
   };
@@ -25,15 +23,14 @@ const Login: React.FC = () => {
 
     const body = form;
     await axios
-      .post(`${baseUrl}/users/login`, body)
+      .post(`${baseUrl}users/login`, body)
       .then((res) => {
-        setResponse(res.data.token);
+        window.localStorage.setItem("token", res.data.token);
       })
       .catch((err) => {
         console.log(err.data);
       });
 
-    window.localStorage.setItem("token", response);
     history.push("/home");
     resetForm();
   };
@@ -97,6 +94,7 @@ const Login: React.FC = () => {
               required
             />
             <Input
+              type="password"
               name="password"
               label="password "
               value={form.password}

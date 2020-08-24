@@ -1,0 +1,43 @@
+.bodyContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+}
+
+.bodyContainer button {
+  width: 10rem;
+  font-size: 2rem;
+  margin: 1rem 2rem;
+  background: none;
+}
+
+.bodyContainer button:hover {
+  color: #f7953e;
+  text-shadow: 1px 2px 2px #2f2f2f;
+}
+
+.bodyContainer button:active {
+  border: none;
+  outline: none;
+  color: #ab5509;
+}
+
+.bodyContainer img {
+  height: 82vh;
+  padding: 5rem 0 5rem 0;
+  border-right: 3px solid #13c9f2;
+}
+
+.listContainer {
+  background-color: #6e6e6e;
+  padding: 5rem 2rem;
+  margin: 15rem 8rem 0;
+}
+
+.listContainer li {
+  list-style-type: none;
+  border: white 1px solid;
+  margin: 2rem 0;
+}
+/*# sourceMappingURL=styles.css.map */

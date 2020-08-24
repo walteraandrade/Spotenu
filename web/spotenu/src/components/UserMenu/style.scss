@@ -1,0 +1,47 @@
+@import "../../global/css/colorPalette";
+
+.userMenuContainer {
+    display: flex;
+    flex-flow: column wrap;
+    color: white;
+    font-size: 3.5rem;
+    width: 30%;
+    position: relative;
+    right: 0;
+    top: 11vh;
+    text-decoration: none;
+    ul {
+        background-color: $black;
+        border: 2px solid $white;
+        padding: 2rem;
+        li {
+            border-bottom: solid 2px $white;
+        }
+    }
+    button {
+        font-size: 3.5rem;
+        background-color: $black;
+        &:hover {
+            color: $secondary;
+        }
+    }
+    a {
+        text-decoration: none;
+        &:visited {
+            color: $white;
+        }
+        &:hover {
+            color: $secondary;
+        }
+    }
+    ul,
+    li {
+        list-style-type: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .userMenuContainer {
+        width: 70%;
+    }
+}

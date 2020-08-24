@@ -1,0 +1,59 @@
+.userMenuContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  color: white;
+  font-size: 3.5rem;
+  width: 30%;
+  position: relative;
+  right: 0;
+  top: 11vh;
+  text-decoration: none;
+}
+
+.userMenuContainer ul {
+  background-color: #0d0d0d;
+  border: 2px solid #f2f2f0;
+  padding: 2rem;
+}
+
+.userMenuContainer ul li {
+  border-bottom: solid 2px #f2f2f0;
+}
+
+.userMenuContainer button {
+  font-size: 3.5rem;
+  background-color: #0d0d0d;
+}
+
+.userMenuContainer button:hover {
+  color: #f7953e;
+}
+
+.userMenuContainer a {
+  text-decoration: none;
+}
+
+.userMenuContainer a:visited {
+  color: #f2f2f0;
+}
+
+.userMenuContainer a:hover {
+  color: #f7953e;
+}
+
+.userMenuContainer ul,
+.userMenuContainer li {
+  list-style-type: none;
+}
+
+@media (max-width: 700px) {
+  .userMenuContainer {
+    width: 70%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
