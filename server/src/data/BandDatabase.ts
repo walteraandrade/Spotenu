@@ -16,4 +16,11 @@ export class BandDatabase extends BaseDatabase {
 
     return result[0];
   }
+
+  public async approveBand(name: string): Promise<void> {
+    await this.getConnection().raw(`
+    UPDATE Spotenu_Users
+    SET is_approved = true
+    WHERE name = "${name}"`);
+  }
 }

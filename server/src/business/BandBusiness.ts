@@ -56,4 +56,16 @@ export class BandBusiness {
 
     return token;
   }
+
+  public async approve(name: string, token: string) {
+    const auth = await this.tokenGenerator.verify(token);
+    if (auth !== "ADMIN") {
+      throw new Unauthorized("You do not have permission to do that.");
+    }
+    if (!name) {
+      throw new NotFound("There is no such band in our database.");
+    }
+
+    await this.bandDatabase.approveBand(name);
+  }
 }

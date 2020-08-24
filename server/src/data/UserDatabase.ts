@@ -39,8 +39,6 @@ export class UserDatabase extends BaseDatabase {
     const result = await this.getConnection().raw(`
     SELECT * FROM ${UserDatabase.TABLE_NAME} WHERE nickname = "${nickname}"`);
 
-    console.log(result[0]);
-
     return this.toModel(result[0][0]);
   }
 }
