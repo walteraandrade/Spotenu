@@ -5,7 +5,7 @@ export class BandDatabase extends BaseDatabase {
 
   public async fetchBands(): Promise<any> {
     const result = await this.getConnection().raw(`
-    SELECT name, nickname, email, is_approved FROM ${BandDatabase.TABLE_NAME} WHERE type = "BAND";`);
+    SELECT name, description FROM ${BandDatabase.TABLE_NAME} WHERE type = "BAND" AND is_approved = false;`);
 
     return result[0];
   }

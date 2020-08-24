@@ -168,7 +168,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/spotenu-server/dev/1598275666066-2020-08-24T13:27:46.066Z/spotenu-server.zip"
+                "S3Key": "serverless/spotenu-server/dev/1598282225314-2020-08-24T15:17:05.314Z/spotenu-server.zip"
               },
               "FunctionName": "spotenu-server-dev-app",
               "Handler": "src/lambda.handler",
@@ -196,14 +196,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionGqjP3WO8vDFUBg04IR0GtgwghczS3DLLs752npRYdY": {
+          "AppLambdaVersionRXEtYzV365pLLC3hJL3VZXWEMEw6wXSpsTPAYxpU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "QJbhf48Kz94yh9v5GQuEy70whXHEe3lGbfL9tuYkC60="
+              "CodeSha256": "wMEhC2BftAl6fB5T8BiekuAyH5I32q2nYK+VYH/nfsM="
             }
           },
           "ApiGatewayRestApi": {
@@ -322,7 +322,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1598275650045": {
+          "ApiGatewayDeployment1598282207439": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -382,7 +382,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionGqjP3WO8vDFUBg04IR0GtgwghczS3DLLs752npRYdY"
+              "Ref": "AppLambdaVersionRXEtYzV365pLLC3hJL3VZXWEMEw6wXSpsTPAYxpU"
             }
           },
           "ServiceEndpoint": {
@@ -514,7 +514,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionGqjP3WO8vDFUBg04IR0GtgwghczS3DLLs752npRYdY"
+        "versionLogicalId": "AppLambdaVersionRXEtYzV365pLLC3hJL3VZXWEMEw6wXSpsTPAYxpU"
       }
     },
     "serviceFilename": "serverless.yml",
@@ -522,7 +522,7 @@
     "isDashboardMonitoringPreconfigured": false
   },
   "package": {
-    "artifactDirectoryName": "serverless/spotenu-server/dev/1598275666066-2020-08-24T13:27:46.066Z",
+    "artifactDirectoryName": "serverless/spotenu-server/dev/1598282225314-2020-08-24T15:17:05.314Z",
     "artifact": ""
   }
 }
