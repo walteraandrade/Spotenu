@@ -4,6 +4,8 @@ import Header from "../../components/Header";
 import "./styles.css";
 import { useHistory } from "react-router-dom";
 import { useForm } from "../../global/functions/UseForm";
+import axios from "axios";
+import { baseUrl } from "../../global/functions/ApiHandler";
 
 const BandSignup: React.FC = () => {
   const history = useHistory();
@@ -14,7 +16,6 @@ const BandSignup: React.FC = () => {
     name: "",
     email: "",
     nickname: "",
-    description: "",
     password: "",
   });
 
@@ -28,9 +29,21 @@ const BandSignup: React.FC = () => {
     onChange(event.target.name, event.target.value);
   };
 
-  const onClickSumbit = (event: React.SyntheticEvent) => {
+  const onClickSumbit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
-    console.log(form);
+    const description = descriptionText as string;
+    const body = { ...form, description, type: "BAND" };
+
+    await axios
+      .post(`${baseUrl}users/signup`, body)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.data);
+      });
+
+    history.push("/home");
   };
   return (
     <div className="band">
@@ -59,6 +72,7 @@ const BandSignup: React.FC = () => {
           required
         />
         <Input
+          type="password"
           label="password"
           name="password"
           value={form.password}

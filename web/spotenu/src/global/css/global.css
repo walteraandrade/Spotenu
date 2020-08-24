@@ -64,6 +64,11 @@ button:hover {
   background-color: #1a90ab;
 }
 
+button:focus {
+  outline: none;
+  border: solid #f2f2f0 2px;
+}
+
 input {
   height: 5rem;
   border-radius: 3rem;

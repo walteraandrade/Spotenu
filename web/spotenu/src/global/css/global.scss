@@ -56,6 +56,10 @@ button {
   &:hover {
     background-color: $primaryDark;
   }
+  &:focus {
+    outline: none;
+    border: solid $white 2px;
+  }
 }
 
 input {
