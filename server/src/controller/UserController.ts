@@ -55,7 +55,7 @@ export class UserController {
   async verification(req: Request, res: Response) {
     try {
       const type = await UserController.UserBusiness.verify(
-        req.headers.token as string
+        req.headers.auth as string
       );
 
       res.status(200).send({

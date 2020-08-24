@@ -9,4 +9,4 @@ userRouter.post("/signup", userController.signUp);
 
 userRouter.post("/login", userController.login);
 
-userRouter.put("/verification", userController.verification);
+userRouter.get("/verification", userController.verification);

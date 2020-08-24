@@ -15,7 +15,7 @@ export class BandController {
 
   async fetchBands(req: Request, res: Response) {
     try {
-      const token = (await req.headers.token) as string;
+      const token = (await req.headers.auth) as string;
       const result = await BandController.BandBusiness.fetchBands(token);
 
       res.status(200).send({
